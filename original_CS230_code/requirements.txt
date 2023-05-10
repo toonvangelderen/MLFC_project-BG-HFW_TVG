@@ -1,0 +1,9 @@
+scipy
+numpy
+Pillow
+torch>=1.2
+tabulate
+tqdm
+torchvision
+scikit-learn 
+plotly
