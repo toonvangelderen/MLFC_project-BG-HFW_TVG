@@ -1,0 +1,4 @@
+Added Double_well and Triple_well. Just added them as we made them, we didn't change that much.
+Only notable thing is the fact that the wieghts on the tensors containing the positions of the atoms (or the datapoints) are tracked, which means they cannot be used by numpy.
+Therefore in the Triple_well we use the torch.exp instaead of the np.exp, this will be something to think when implenenting other potentials with more complicated formulations.
+Make sure you use the torch math packages instead of the numpy ones.
