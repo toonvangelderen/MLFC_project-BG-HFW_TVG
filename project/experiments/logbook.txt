@@ -1,1 +1,1 @@
-
+Setting up experiments for checking optimal parameters for learning rate, batch size and maybe network structure.
