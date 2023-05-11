@@ -1,1 +1,0 @@
-Added the RealNVP network structure as net_doucle_triple_well.py instead of net.py, because I think there is a chance we have to change the network structure a bit for a more complicated system.
