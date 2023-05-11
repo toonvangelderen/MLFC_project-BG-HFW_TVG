@@ -7,7 +7,7 @@ from .system import System
 
 class TripleWell(System):
     """
-    Triple well potential as used by 
+    Triple well potential as used by
     """
     def __init__(self, params = None, **kwargs):
         params_default = {
@@ -24,20 +24,18 @@ class TripleWell(System):
             self.params = params_default
 
     def energy(self,x):
-        
-        x=x.detach.numpy()
-        
+
         if (len(x.shape) > 1):
-            return  3 * np.exp( -x[:,0]**2 - (x[:,1] - (1/3))**2) - \
-                        3 * np.exp( -x[:,0]**2 - (x[:,1] - (5/3))**2) - \
-                            5 * np.exp( - (x[:,0] - 1)**2 - x[:,1]**2) - \
-                                5 * np.exp( - (x[:,0] + 1)**2 - x[:,1]**2) + \
+            return  3 * torch.exp( -x[:,0]**2 - (x[:,1] - (1/3))**2) - \
+                        3 * torch.exp( -x[:,0]**2 - (x[:,1] - (5/3))**2) - \
+                            5 * torch.exp( - (x[:,0] - 1)**2 - x[:,1]**2) - \
+                                5 * torch.exp( - (x[:,0] + 1)**2 - x[:,1]**2) + \
                                     0.2*x[:,0] + 0.2*(x[:,1] - (1/3)**4)
         else:
-            return  3 * np.exp( -x[0]**2 - (x[1] - (1/3))**2) - \
-                        3 * np.exp( -x[0]**2 - (x[1] - (5/3))**2) - \
-                            5 * np.exp( - (x[0] - 1)**2 - x[1]**2) - \
-                                5 * np.exp( - (x[0] + 1)**2 - x[1]**2) + \
+            return  3 * torch.exp( -x[0]**2 - (x[1] - (1/3))**2) - \
+                        3 * torch.exp( -x[0]**2 - (x[1] - (5/3))**2) - \
+                            5 * torch.exp( - (x[0] - 1)**2 - x[1]**2) - \
+                                5 * torch.exp( - (x[0] + 1)**2 - x[1]**2) + \
                                     0.2*x[0] + 0.2*(x[1] - (1/3)**4)
     # def energy(self, x):
     #     a = self.params['a']
