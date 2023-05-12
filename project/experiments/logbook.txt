@@ -1,1 +1,3 @@
 Setting up experiments for checking optimal parameters for learning rate, batch size and maybe network structure.
+
+12/5 18:37 -- initial commit contains worked out notebook with a set of hyperparameters that can be checked using the notebook. The only one which we still have difficulties with is the ratio in the kl loss, which is not cannot be passed on from the notebook to the function somehow. The code makes files for all relevant coordinates for every hyper parameter combination, these files can later be read in to visualize the results. They are named dynamically, so it is clear from the filename what the hyper parameter combination used was.
