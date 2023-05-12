@@ -26,17 +26,17 @@ class TripleWell(System):
     def energy(self,x):
 
         if (len(x.shape) > 1):
-            return  3 * torch.exp( -x[:,0]**2 - (x[:,1] - (1/3))**2) - \
+            return  3 * (3 * torch.exp( -x[:,0]**2 - (x[:,1] - (1/3))**2) - \
                         3 * torch.exp( -x[:,0]**2 - (x[:,1] - (5/3))**2) - \
                             5 * torch.exp( - (x[:,0] - 1)**2 - x[:,1]**2) - \
                                 5 * torch.exp( - (x[:,0] + 1)**2 - x[:,1]**2) + \
-                                    0.2*x[:,0] + 0.2*(x[:,1] - (1/3)**4)
+                                    0.2*x[:,0] + 0.2*(x[:,1] - (1/3)**4)) + 5 + 0.1 * (x[:, 0]**2 + x[:, 1]**2)
         else:
-            return  3 * torch.exp( -x[0]**2 - (x[1] - (1/3))**2) - \
+            return  3 * (3 * torch.exp( -x[0]**2 - (x[1] - (1/3))**2) - \
                         3 * torch.exp( -x[0]**2 - (x[1] - (5/3))**2) - \
                             5 * torch.exp( - (x[0] - 1)**2 - x[1]**2) - \
                                 5 * torch.exp( - (x[0] + 1)**2 - x[1]**2) + \
-                                    0.2*x[0] + 0.2*(x[1] - (1/3)**4)
+                                    0.2*x[0] + 0.2*(x[1] - (1/3)**4)) + 5 + 0.1 * (x[0]**2 + x[1]**2)
     # def energy(self, x):
     #     a = self.params['a']
     #     b = self.params['b']
