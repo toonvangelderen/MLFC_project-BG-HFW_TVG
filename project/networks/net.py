@@ -68,10 +68,10 @@ class RealNVP(nn.Module): # base class Module
         self.energies = self.calculate_energy(batch)
         return self.expected_value(0.5*torch.norm(z,dim=1)**2 - log_R_xz)
 
-    def loss_kl(self, batch_z):
+    def loss_kl(self, batch_z, ratio_ener=1, ratio_entr=1):
         x, log_R_zx = self.g(batch_z)
         self.energies = self.calculate_energy(x)
-        return self.expected_value(self.energies - log_R_zx)
+        return self.expected_value(ratio_ener*self.energies - ratio_entr*log_R_zx)
 
     def loss_kl_ising(self, batch_z):
         x, log_R_zx = self.g(batch_z)
