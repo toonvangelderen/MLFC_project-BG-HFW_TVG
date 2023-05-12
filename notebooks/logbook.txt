@@ -1,1 +1,3 @@
 Examples of the code in use
+
+12/5 10:43 - Uploaded working notebook, without np.detach() and torch.numpy_to_torch() Also changed learning rate and N_cycles and amount of samples the training by energy is done on. Notebook works now, but is still overfitting on the energy.
