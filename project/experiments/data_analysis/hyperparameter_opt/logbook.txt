@@ -1,0 +1,1 @@
+here the data generated in training the networks with the different hyperparameters is analysed.
